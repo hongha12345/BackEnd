@@ -19,6 +19,8 @@ namespace BARBEER_SHOP.DATA
         public DbSet<NhaCungCap>? NhaCungCaps { get; set; }
         public DbSet<DonHang>? DonHangs { get; set; }
         public DbSet<HoaDon>? HoaDons { get; set; }
+        public DbSet<ThoCatToc>? ThoCatTocs { get; set; }
+        public DbSet<ChiNhanh>? ChiNhanhs { get; set; }
         #endregion
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
@@ -81,6 +83,7 @@ namespace BARBEER_SHOP.DATA
                 ConcurrencyStamp = Guid.NewGuid().ToString(),
 
             });
+
             modelBuilder.Entity<IdentityRole>().HasData(new IdentityRole
             {
                 Name = "Admin",

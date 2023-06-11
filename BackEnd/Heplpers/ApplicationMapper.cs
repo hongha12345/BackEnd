@@ -1,4 +1,5 @@
 ﻿using AutoMapper;
+using BackEnd.Models;
 using BARBEER_SHOP.DATA;
 using BARBEER_SHOP.Models;
 
@@ -23,6 +24,10 @@ namespace BARBEER_SHOP.Heplpers
             CreateMap<HoaDon, HoaDonModel>().ReverseMap();
 
             CreateMap<LichHen, LichHenModel>().ReverseMap();
+
+            CreateMap<ThoCatToc, ThoCatTocModel>().ReverseMap();
+
+            CreateMap<ChiNhanh, ChiNhanhModel>().ReverseMap();
         }
     }
 }

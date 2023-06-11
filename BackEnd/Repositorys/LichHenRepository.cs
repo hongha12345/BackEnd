@@ -20,12 +20,12 @@ namespace BARBEER_SHOP.Repositorys
             var newlichhen = _mapper.Map<LichHen>(model);
             _context.LichHens!.Add(newlichhen);
             await _context.SaveChangesAsync();
-            return newlichhen.MALH;
+            return newlichhen.MaLH;
         }
 
         public async Task DeleteLichHenAsync(int malh)
         {
-            var deletelichhen = _context.LichHens!.SingleOrDefault(a => a.MALH == malh);
+            var deletelichhen = _context.LichHens!.SingleOrDefault(a => a.MaLH == malh);
             if (deletelichhen != null)
             {
                 _context.LichHens!.Remove(deletelichhen);
@@ -47,7 +47,7 @@ namespace BARBEER_SHOP.Repositorys
 
         public async Task UpdateLichHenAsync(int malh, LichHenModel model)
         {
-            if (malh == model.MALH)
+            if (malh == model.MaLH)
             {
                 var updatelichhen = _mapper.Map<LichHen>(model);
                 _context.LichHens!.Update(updatelichhen);

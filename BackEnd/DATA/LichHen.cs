@@ -7,16 +7,31 @@ namespace BARBEER_SHOP.DATA
     public class LichHen
     {
         [Key]
-        public int MALH { get; set; }
+        public int MaLH { get; set; }
 
-        public DateTime ThoiGianBD { get; set; }
+        public string? Phone { get; set; }
+        [Required]
+        [MaxLength(100)]
+        public string? Name { get; set; }
 
-        public DateTime ThoiGianKT { get; set; }
+        public string? customer_number { get; set; } = string.Empty;
 
-        public DateTime NgayHen { get; set; }
+        public int? MaCN { get; set; }
+        [ForeignKey("MaCN")]
+        public ChiNhanh? ChiNhanh { get; set; }
+
+        public string? Date { get; set; }
+
+        public string? Time { get; set; }
+
+        public string? GhiChu { get; set; }
 
         public int? MaDV { get; set; }
         [ForeignKey("MaDV")]
         public DichVu? DichVu { get; set; }
+
+        public int? MaTCT { get; set; }
+        [ForeignKey("MaTCT")]
+        public ThoCatToc? ThoCatToc { get; set; }
     }
 }

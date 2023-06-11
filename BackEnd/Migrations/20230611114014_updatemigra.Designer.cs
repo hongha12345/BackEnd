@@ -4,6 +4,7 @@ using BARBEER_SHOP.DATA;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 #nullable disable
@@ -11,9 +12,11 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace BackEnd.Migrations
 {
     [DbContext(typeof(BarberShopContext))]
-    partial class BarberShopContextModelSnapshot : ModelSnapshot
+    [Migration("20230611114014_updatemigra")]
+    partial class updatemigra
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -398,9 +401,6 @@ namespace BackEnd.Migrations
 
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("MaTCT"));
 
-                    b.Property<int?>("MaCN")
-                        .HasColumnType("int");
-
                     b.Property<string>("TenTCT")
                         .IsRequired()
                         .HasMaxLength(100)
@@ -440,22 +440,22 @@ namespace BackEnd.Migrations
                     b.HasData(
                         new
                         {
-                            Id = "efcbfefd-487e-462f-9892-598568e2e83d",
-                            ConcurrencyStamp = "b2616936-f3af-4a6a-8767-e0eca14d2d48",
+                            Id = "1e6b1f28-2779-4ec4-af67-232e5f0a5ef0",
+                            ConcurrencyStamp = "443c9934-a854-4958-b047-6d29c7eab4c3",
                             Name = "User",
                             NormalizedName = "USER"
                         },
                         new
                         {
-                            Id = "102bddc7-a610-4592-b42e-629c5c3ba841",
-                            ConcurrencyStamp = "a8dc2f6e-d5e8-4928-9ee8-ef977aa3c823",
+                            Id = "54c502a7-4394-480d-8d19-b748314cc3bb",
+                            ConcurrencyStamp = "684a91d7-a36a-4e32-80da-bbc16138cb0b",
                             Name = "Admin",
                             NormalizedName = "ADMIN"
                         },
                         new
                         {
-                            Id = "ec99548d-7938-4189-bceb-78d4a9c95d8a",
-                            ConcurrencyStamp = "736b06c4-b827-43ed-861f-3f7ede29d90e",
+                            Id = "7d53a236-87e7-4754-b49a-40e1a2f4fbf9",
+                            ConcurrencyStamp = "a75e4f71-3e62-4234-b91f-573b65860225",
                             Name = "Manager",
                             NormalizedName = "MANAGER"
                         });

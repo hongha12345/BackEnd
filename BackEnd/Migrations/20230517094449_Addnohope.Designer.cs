@@ -4,6 +4,7 @@ using BARBEER_SHOP.DATA;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 #nullable disable
@@ -11,9 +12,11 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace BackEnd.Migrations
 {
     [DbContext(typeof(BarberShopContext))]
-    partial class BarberShopContextModelSnapshot : ModelSnapshot
+    [Migration("20230517094449_Addnohope")]
+    partial class Addnohope
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -21,24 +24,6 @@ namespace BackEnd.Migrations
                 .HasAnnotation("Relational:MaxIdentifierLength", 128);
 
             SqlServerModelBuilderExtensions.UseIdentityColumns(modelBuilder);
-
-            modelBuilder.Entity("BARBEER_SHOP.DATA.ChiNhanh", b =>
-                {
-                    b.Property<int>("MaCN")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int");
-
-                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("MaCN"));
-
-                    b.Property<string>("TenCN")
-                        .IsRequired()
-                        .HasMaxLength(100)
-                        .HasColumnType("nvarchar(100)");
-
-                    b.HasKey("MaCN");
-
-                    b.ToTable("ChiNhanh");
-                });
 
             modelBuilder.Entity("BARBEER_SHOP.DATA.ChiTietDonHang", b =>
                 {
@@ -241,48 +226,27 @@ namespace BackEnd.Migrations
 
             modelBuilder.Entity("BARBEER_SHOP.DATA.LichHen", b =>
                 {
-                    b.Property<int>("MaLH")
+                    b.Property<int>("MALH")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("int");
 
-                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("MaLH"));
-
-                    b.Property<string>("Date")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("GhiChu")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<int?>("MaCN")
-                        .HasColumnType("int");
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("MALH"));
 
                     b.Property<int?>("MaDV")
                         .HasColumnType("int");
 
-                    b.Property<int?>("MaTCT")
-                        .HasColumnType("int");
+                    b.Property<DateTime>("NgayHen")
+                        .HasColumnType("datetime2");
 
-                    b.Property<string>("Name")
-                        .IsRequired()
-                        .HasMaxLength(100)
-                        .HasColumnType("nvarchar(100)");
+                    b.Property<DateTime>("ThoiGianBD")
+                        .HasColumnType("datetime2");
 
-                    b.Property<string>("Phone")
-                        .HasColumnType("nvarchar(max)");
+                    b.Property<DateTime>("ThoiGianKT")
+                        .HasColumnType("datetime2");
 
-                    b.Property<string>("Time")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("customer_number")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.HasKey("MaLH");
-
-                    b.HasIndex("MaCN");
+                    b.HasKey("MALH");
 
                     b.HasIndex("MaDV");
-
-                    b.HasIndex("MaTCT");
 
                     b.ToTable("LichHen");
                 });
@@ -390,27 +354,6 @@ namespace BackEnd.Migrations
                     b.ToTable("SanPham");
                 });
 
-            modelBuilder.Entity("BARBEER_SHOP.DATA.ThoCatToc", b =>
-                {
-                    b.Property<int>("MaTCT")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int");
-
-                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("MaTCT"));
-
-                    b.Property<int?>("MaCN")
-                        .HasColumnType("int");
-
-                    b.Property<string>("TenTCT")
-                        .IsRequired()
-                        .HasMaxLength(100)
-                        .HasColumnType("nvarchar(100)");
-
-                    b.HasKey("MaTCT");
-
-                    b.ToTable("ThoCatToc");
-                });
-
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityRole", b =>
                 {
                     b.Property<string>("Id")
@@ -440,22 +383,22 @@ namespace BackEnd.Migrations
                     b.HasData(
                         new
                         {
-                            Id = "efcbfefd-487e-462f-9892-598568e2e83d",
-                            ConcurrencyStamp = "b2616936-f3af-4a6a-8767-e0eca14d2d48",
+                            Id = "8715583a-25e2-4a04-8ce8-743b1b2664cb",
+                            ConcurrencyStamp = "52d49ee4-0aa9-41d2-adf0-08aedf475e42",
                             Name = "User",
                             NormalizedName = "USER"
                         },
                         new
                         {
-                            Id = "102bddc7-a610-4592-b42e-629c5c3ba841",
-                            ConcurrencyStamp = "a8dc2f6e-d5e8-4928-9ee8-ef977aa3c823",
+                            Id = "9fcc2d70-9ad4-45c5-b467-e6548d30c2f2",
+                            ConcurrencyStamp = "3dd28820-8057-4021-aa12-89efd63bd2a1",
                             Name = "Admin",
                             NormalizedName = "ADMIN"
                         },
                         new
                         {
-                            Id = "ec99548d-7938-4189-bceb-78d4a9c95d8a",
-                            ConcurrencyStamp = "736b06c4-b827-43ed-861f-3f7ede29d90e",
+                            Id = "d56ecf61-9710-4869-9cab-939b040a1bdb",
+                            ConcurrencyStamp = "c99fbc1d-31b6-45b4-b885-5f0a9758ed2a",
                             Name = "Manager",
                             NormalizedName = "MANAGER"
                         });
@@ -620,23 +563,11 @@ namespace BackEnd.Migrations
 
             modelBuilder.Entity("BARBEER_SHOP.DATA.LichHen", b =>
                 {
-                    b.HasOne("BARBEER_SHOP.DATA.ChiNhanh", "ChiNhanh")
-                        .WithMany("LichHens")
-                        .HasForeignKey("MaCN");
-
                     b.HasOne("BARBEER_SHOP.DATA.DichVu", "DichVu")
                         .WithMany("LichHens")
                         .HasForeignKey("MaDV");
 
-                    b.HasOne("BARBEER_SHOP.DATA.ThoCatToc", "ThoCatToc")
-                        .WithMany("LichHens")
-                        .HasForeignKey("MaTCT");
-
-                    b.Navigation("ChiNhanh");
-
                     b.Navigation("DichVu");
-
-                    b.Navigation("ThoCatToc");
                 });
 
             modelBuilder.Entity("BARBEER_SHOP.DATA.SanPham", b =>
@@ -705,11 +636,6 @@ namespace BackEnd.Migrations
                         .IsRequired();
                 });
 
-            modelBuilder.Entity("BARBEER_SHOP.DATA.ChiNhanh", b =>
-                {
-                    b.Navigation("LichHens");
-                });
-
             modelBuilder.Entity("BARBEER_SHOP.DATA.DichVu", b =>
                 {
                     b.Navigation("ChiTietHoaDons");
@@ -745,11 +671,6 @@ namespace BackEnd.Migrations
             modelBuilder.Entity("BARBEER_SHOP.DATA.SanPham", b =>
                 {
                     b.Navigation("ChiTietDonHangs");
-                });
-
-            modelBuilder.Entity("BARBEER_SHOP.DATA.ThoCatToc", b =>
-                {
-                    b.Navigation("LichHens");
                 });
 #pragma warning restore 612, 618
         }

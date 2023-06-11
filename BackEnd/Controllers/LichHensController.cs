@@ -70,7 +70,7 @@ namespace BARBEER_SHOP.Controllers
         [HttpPut("{malh}")]
         public async Task<IActionResult> UpdateLichHen(int malh, LichHenModel model)
         {
-            if (malh != model.MALH)
+            if (malh != model.MaLH)
             {
                 return NotFound();
             }
